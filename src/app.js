@@ -57,10 +57,13 @@ export default () => {
         };
         watchedState.form.state = 'sent';
 
-        axios.get(`https://hexlet-allorigins.herokuapp.com/get?url=${encodeURIComponent(link)}`)
+        // axios.get(`https://hexlet-allorigins.herokuapp.com/get?url=${encodeURIComponent(link)}`)
+        axios.get(`https://hexlet-allorigins.herokuapp.com/raw?url=${link}`)
             .then(function (response) {
+                // alert(Object.keys(response.data));
                 const { links, feeds, posts } = watchedState.data;
-                const data = parser(response.data.contents);
+                // const data = parser(response.data.contents);
+                const data = parser(response.data);
                 watchedState.data = {
                     links: [...links, link],
                     feeds: [...feeds, data.feed],
