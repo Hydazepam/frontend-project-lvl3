@@ -2,18 +2,26 @@ import * as yup from 'yup';
 import axios from 'axios';
 import parser from './parser';
 import view from './view';
-import i18next from 'i18next';
+import { setLocale } from 'yup';
 
 const validate = (link, links) => {
-    let schema = yup
-        .string()
+    setLocale({
+        string: {
+            url: 'notURL',
+        },
+        mixed: {
+            notOneOf: 'duplicate',
+        }
+    });
+
+    let schema = yup.string()
         .url()
         .notOneOf(links);
     try {
         schema.validateSync(link);
         return null;
     } catch (err) {
-        return err.message
+        return err.message;
     };
 };
 

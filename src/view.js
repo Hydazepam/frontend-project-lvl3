@@ -1,6 +1,24 @@
 import onChange from 'on-change';
 import i18next from 'i18next';
 
+i18next.init({
+    lng: 'en',
+    debug: false,
+    resources: {
+        en: {
+            translation: {
+                feeds: 'Feeds',
+                posts: 'Posts',
+                feedback: {
+                    success: 'RSS has been loaded',
+                    notURL: 'The link must be a valid URL',
+                    duplicate: 'RSS already exists',
+                },
+            }
+        }
+    }
+});
+
 const generateFeed = (state) => {
     const feeds = document.querySelector('.feeds');
     if (feeds.querySelector('h2')) {
@@ -10,7 +28,7 @@ const generateFeed = (state) => {
         return;
     }
     const header = document.createElement('h2');
-    header.innerHTML = 'Фиды';
+    header.innerHTML = `${i18next.t('feeds')}`;
     const list = document.createElement('ul');
     list.classList.add('list-group', 'mb-5');
 
@@ -30,7 +48,7 @@ const generatePosts = (state) => {
         return;
     }
     const header = document.createElement('h2');
-    header.innerHTML = 'Посты';
+    header.innerHTML = `${i18next.t('posts')}`
     const list = document.createElement('ul');
     list.classList.add('list-group');
 
@@ -52,12 +70,12 @@ export default (state) => (
                     input.classList.remove('is-invalid');
                     feedback.classList.remove('text-danger');
                     feedback.classList.add('text-success');
-                    feedback.innerHTML = 'RSS has been loaded';
+                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case false:
                     feedback.classList.add('text-danger');
                     input.classList.add('is-invalid');
-                    feedback.innerHTML = value.error;
+                    feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
                     break;
             }
         }
