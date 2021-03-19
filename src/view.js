@@ -88,5 +88,8 @@ export default (state) => (
                     break;
             }
         }
+        if (path === 'data.posts') {
+            generatePosts(state);
+        }
     })
 );

@@ -15,6 +15,7 @@ export default (xml) => {
         title: getData(item, 'title'),
         description: getData(item, 'description'),
         link: getData(item, 'link'),
+        pubDate: getData(item, 'pubDate'),
     }));
 
     return {

@@ -3,6 +3,7 @@ import axios from 'axios';
 import parser from './parser';
 import view from './view';
 import { setLocale } from 'yup';
+import fetchData from './updater';
 
 const validate = (link, links) => {
     setLocale({
@@ -39,9 +40,10 @@ export default () => {
             feeds: [],
             posts: [],
         },
+        // id: '',
         error: null,
     };
-
+    
     const watchedState = view(state);
     const form = document.querySelector('.rss-form');
     const input = document.querySelector('input');
@@ -49,8 +51,9 @@ export default () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        const links = state.data.feeds.map((feed) => feed.link);
         const link = input.value;
-        const error = validate(link, state.data.links);
+        const error = validate(link, links);
         if (error) {
             watchedState.form.field = {
                 valid: false,
@@ -64,23 +67,9 @@ export default () => {
             error: null,
         };
         watchedState.form.state = 'sent';
+        
+        fetchData(link, watchedState);
 
-        axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${link}`)
-            .then(function (response) {
-                const { links, feeds, posts } = watchedState.data;
-                const data = parser(response.data.contents);
-                watchedState.data = {
-                    links: [...links, link],
-                    feeds: [...feeds, data.feed],
-                    posts: [...posts, ...data.posts],
-                };
-                watchedState.error = null;
-                watchedState.form.state = 'success';
-            })
-            .catch(function (err) {
-                watchedState.form.state = 'fail';
-                watchedState.error = err.message;
-            })
         input.addEventListener('input', () => {
             watchedState.form.state = 'empty';
             watchedState.form.error = null;
