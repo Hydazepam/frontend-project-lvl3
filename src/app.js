@@ -1,6 +1,4 @@
 import * as yup from 'yup';
-import axios from 'axios';
-import parser from './parser';
 import view from './view';
 import { setLocale } from 'yup';
 import fetchData from './updater';
