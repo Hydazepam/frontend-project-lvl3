@@ -7,5 +7,7 @@
 ### Test Coverage Badge:
 [![Test Coverage](https://api.codeclimate.com/v1/badges/fa70ce33b10f6778a00e/test_coverage)](https://codeclimate.com/github/Hydazepam/frontend-project-lvl3/test_coverage)
 
-### Link to published project:
+### Links to published project:
 https://frontend-project-lvl3-six-omega.vercel.app/
+https://frontend-project-lvl3-git-main-hydazepam.vercel.app/
+https://frontend-project-lvl3-hydazepam.vercel.app/

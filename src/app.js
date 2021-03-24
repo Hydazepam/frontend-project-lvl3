@@ -36,11 +36,10 @@ export default () => {
               },
         },
         data: {
-            links: [],
             feeds: [],
             posts: [],
         },
-        // id: '',
+        viewedPosts: [],
         error: null,
     };
     

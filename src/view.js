@@ -39,12 +39,67 @@ const generateFeed = (state) => {
     feeds.appendChild(list);
 };
 
+const generateModal = (state) => {
+    const buttons = document.querySelectorAll('button[class="btn btn-primary btn-sm"]');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            document.querySelector('body').classList.add('modal-open');
+
+            const modal = document.querySelector('#modal');
+            modal.classList.add('show');
+            modal.style.display = 'block';
+            modal.removeAttribute('aria-hidden');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('role', 'dialog');
+
+            const index = e.currentTarget.getAttribute('data-id');
+            modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
+            modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
+            modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
+
+            state.viewedPosts.push(index);
+            viewedPosts(state);
+
+            const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
+            closeModalButtons.forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    document.querySelector('body').classList.remove('modal-open');
+
+                    const modal = document.querySelector('#modal');
+                    modal.classList.remove('show');
+                    modal.style.display = 'none';
+                    modal.setAttribute('aria-hidden', 'true');
+                    modal.removeAttribute('aria-modal');
+                    modal.removeAttribute('role');
+                })
+            })
+        })
+    })
+};
+
+const viewedPosts = (state) => {
+    const posts = document.querySelectorAll('a[class="font-weight-bold"]');
+
+    posts.forEach((post) => {
+        if (state.viewedPosts.includes(post.getAttribute('data-id'))) {
+            post.classList.remove('font-weight-bold');
+            post.classList.add('font-weight-normal');
+        }
+    })
+};
+
 const generatePosts = (state) => {
     const posts = document.querySelector('.posts');
     if (posts.querySelector('h2')) {
         const list = posts.querySelector('ul');
-        const result = state.data.posts.map((post) => `<li class='list-group-item'><p><a href="${post.link}">${post.title}</a></p></li>`);
+        const result = state.data.posts.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">View</button></li>`);
         list.innerHTML = result.join('');
+
+        generateModal(state);
         return;
     }
     const header = document.createElement('h2');
@@ -52,11 +107,13 @@ const generatePosts = (state) => {
     const list = document.createElement('ul');
     list.classList.add('list-group');
 
-    const result = state.data.posts.map((post) => `<li class='list-group-item'><p><a href="${post.link}">${post.title}</a></p></li>`);
+    const result = state.data.posts.map((post, i) => `<li class='list-group-item d-flex justify-content-between align-items-start'><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">View</button></li>`);
     list.innerHTML = result.join('');
 
     posts.appendChild(header);
     posts.appendChild(list);
+
+    generateModal(state);
 };
 
 export default (state) => (
