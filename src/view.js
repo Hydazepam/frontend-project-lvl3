@@ -1,23 +1,24 @@
 import onChange from 'on-change';
 import i18next from 'i18next';
+import resources from './locales/en';
 
-i18next.init({
-    lng: 'en',
-    debug: false,
-    resources: {
-        en: {
-            translation: {
-                feeds: 'Feeds',
-                posts: 'Posts',
-                feedback: {
-                    success: 'RSS has been loaded',
-                    notURL: 'The link must be a valid URL',
-                    duplicate: 'RSS already exists',
-                },
-            }
-        }
-    }
-});
+// i18next.init({
+//     lng: 'en',
+//     debug: false,
+//     resources: {
+//         en: {
+//             translation: {
+//                 feeds: 'Feeds',
+//                 posts: 'Posts',
+//                 feedback: {
+//                     success: 'RSS has been loaded',
+//                     notURL: 'The link must be a valid URL',
+//                     duplicate: 'RSS already exists',
+//                 },
+//             }
+//         }
+//     }
+// });
 
 const generateFeed = (state) => {
     const feeds = document.querySelector('.feeds');
