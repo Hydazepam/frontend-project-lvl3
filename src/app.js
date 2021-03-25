@@ -15,9 +15,9 @@ const validate = (link, links) => {
 
     let schema = yup.string()
         .url()
-        .notOneOf(links);
+        // .notOneOf(links);
     try {
-        schema.validateSync(link);
+        schema.notOneOf(links).validateSync(link);
         return null;
     } catch (err) {
         return err.message;
