@@ -24,7 +24,7 @@ const validate = (link, links) => {
     };
 };
 
-export default () => {
+export default (i18next) => {
     const state = {
         form: {
             state: 'empty',
@@ -41,7 +41,7 @@ export default () => {
         error: null,
     };
     
-    const watchedState = view(state);
+    const watchedState = view(state, i18next);
     const form = document.querySelector('.rss-form');
     const input = document.querySelector('input');
 

@@ -1,26 +1,6 @@
 import onChange from 'on-change';
-import i18next from 'i18next';
-import resources from './locales/en';
 
-// i18next.init({
-//     lng: 'en',
-//     debug: false,
-//     resources: {
-//         en: {
-//             translation: {
-//                 feeds: 'Feeds',
-//                 posts: 'Posts',
-//                 feedback: {
-//                     success: 'RSS has been loaded',
-//                     notURL: 'The link must be a valid URL',
-//                     duplicate: 'RSS already exists',
-//                 },
-//             }
-//         }
-//     }
-// });
-
-const generateFeed = (state) => {
+const generateFeed = (state, i18next) => {
     const feeds = document.querySelector('.feeds');
     if (feeds.querySelector('h2')) {
         const list = feeds.querySelector('ul');
@@ -93,7 +73,7 @@ const viewedPosts = (state) => {
     })
 };
 
-const generatePosts = (state) => {
+const generatePosts = (state, i18next) => {
     const posts = document.querySelector('.posts');
     if (posts.querySelector('h2')) {
         const list = posts.querySelector('ul');
@@ -117,7 +97,7 @@ const generatePosts = (state) => {
     generateModal(state);
 };
 
-export default (state) => (
+export default (state, i18next) => (
     onChange(state, (path, value) => {
         const feedback = document.querySelector('.feedback');
         const input = document.querySelector('input');
@@ -140,14 +120,14 @@ export default (state) => (
         if (path === 'form.state') {
             switch (value) {
                 case 'success':
-                    generateFeed(state);
-                    generatePosts(state);
+                    generateFeed(state, i18next);
+                    generatePosts(state, i18next);
                     input.value = '';
                     break;
             }
         }
         if (path === 'data.posts') {
-            generatePosts(state);
+            generatePosts(state, i18next);
         }
     })
 );
