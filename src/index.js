@@ -1,3 +1,4 @@
-import init from './init';
+import app from './app';
+import './css/app.css';
 
-init();
+app();
