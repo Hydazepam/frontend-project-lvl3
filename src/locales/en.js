@@ -1,12 +1,12 @@
 export default {
-    en: {
+    ru: {
         translation: {
-            feeds: 'Feeds',
-            posts: 'Posts',
+            feeds: 'Фиды',
+            posts: 'Посты',
             feedback: {
-                success: 'RSS has been loaded',
-                notURL: 'The link must be a valid URL',
-                duplicate: 'RSS already exists',
+                success: 'RSS успешно загружен',
+                notURL: 'Ссылка должна быть валидным URL',
+                duplicate: 'RSS уже существует',
             },
         },
     }
