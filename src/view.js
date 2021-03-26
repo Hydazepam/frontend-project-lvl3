@@ -108,7 +108,7 @@ export default (state, i18next) => (
                     input.classList.remove('is-invalid');
                     feedback.classList.remove('text-danger');
                     feedback.classList.add('text-success');
-                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
+                    // feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case false:
                     feedback.classList.add('text-danger');
@@ -123,6 +123,7 @@ export default (state, i18next) => (
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     input.value = '';
+                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
             }
         }
