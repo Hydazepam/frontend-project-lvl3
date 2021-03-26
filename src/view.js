@@ -126,6 +126,7 @@ export default (state, i18next) => (
                     break;
                 case 'sent':
                     feedback.innerHTML = '';
+                    break;
             }
         }
         if (path === 'data.posts') {
