@@ -29,6 +29,9 @@ const updateFeeds = (state) => {
 export default (link, state) => {
     axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${link}`)
     .then(function (response) {
+        state.error = null;
+        state.form.state = 'success';
+        
         const { feeds, posts } = state.data;
         const data = parser(response.data.contents);
 
@@ -40,8 +43,8 @@ export default (link, state) => {
             feeds: [...feeds, data.feed],
             posts: [...data.posts, ...posts],
         };
-        state.error = null;
-        state.form.state = 'success';
+        // state.error = null;
+        // state.form.state = 'success';
 
         updateFeeds(state);
     })
