@@ -123,26 +123,26 @@ export default (state, i18next) => (
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     input.value = '';
-                    // feedback.innerHTML = `${i18next.t('feedback.success')}`;
+                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case 'sent':
                     feedback.innerHTML = '';
                     break;
             }
         }
-        if (path === 'requestState.status') {
-            switch (value) {
-                case 'success':
-                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    // console.log('request1')
-                    break;
-                case 'fail':
-                    // console.log('error');
-                    break;
-                case 'sending':
-                    break;
-            }
-        }
+        // if (path === 'requestState.status') {
+        //     switch (value) {
+        //         case 'success':
+        //             feedback.innerHTML = `${i18next.t('feedback.success')}`;
+        //             // console.log('request1')
+        //             break;
+        //         case 'fail':
+        //             // console.log('error');
+        //             break;
+        //         case 'sending':
+        //             break;
+        //     }
+        // }
         if (path === 'data.posts') {
             generatePosts(state, i18next);
         }
