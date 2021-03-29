@@ -2,12 +2,16 @@ import onChange from 'on-change';
 
 const generateFeed = (state, i18next) => {
     const feeds = document.querySelector('.feeds');
+    const feedback = document.querySelector('.feedback');
+
     if (feeds.querySelector('h2')) {
+        feedback.innerHTML = `${i18next.t('feedback.success')}`;
         const list = feeds.querySelector('ul');
         const result = state.data.feeds.map((feed) => `<li class='list-group-item'><h3>${feed.title}</h3><p>${feed.description}</p></li>`);
         list.innerHTML = result.join('');
         return;
     }
+    feedback.innerHTML = `${i18next.t('feedback.success')}`;
     const header = document.createElement('h2');
     header.innerHTML = `${i18next.t('feeds')}`;
     const list = document.createElement('ul');
@@ -75,11 +79,7 @@ const viewedPosts = (state) => {
 
 const generatePosts = (state, i18next) => {
     const posts = document.querySelector('.posts');
-    const feedback = document.querySelector('.feedback');
-
     if (posts.querySelector('h2')) {
-        feedback.innerHTML = `${i18next.t('feedback.success')}`;
-        
         const list = posts.querySelector('ul');
         const result = state.data.posts.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">View</button></li>`);
         list.innerHTML = result.join('');
@@ -87,8 +87,6 @@ const generatePosts = (state, i18next) => {
         generateModal(state);
         return;
     }
-    feedback.innerHTML = `${i18next.t('feedback.success')}`;
-
     const header = document.createElement('h2');
     header.innerHTML = `${i18next.t('posts')}`
     const list = document.createElement('ul');
