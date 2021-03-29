@@ -134,10 +134,10 @@ export default (state, i18next) => (
             switch (value) {
                 case 'success':
                     feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    console.log('success')
+                    // console.log('request1')
                     break;
                 case 'fail':
-                    console.log('error');
+                    // console.log('error');
                     break;
                 case 'sending':
                     break;

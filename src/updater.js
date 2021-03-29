@@ -3,7 +3,7 @@ import parser from './parser';
 
 const updateFeeds = (state) => {
     state.data.feeds.forEach((feed) => {
-        axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${feed.link}`)
+        axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${encodeURIComponent(feed.link)}`)
         .then(function (response) {
             const data = parser(response.data.contents);
 
@@ -27,7 +27,7 @@ const updateFeeds = (state) => {
 };
 
 export default (link, state) => {
-    axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${link}`)
+    axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${encodeURIComponent(link)}`)
     .then(function (response) {
         try {
             const { feeds, posts } = state.data;
@@ -42,7 +42,7 @@ export default (link, state) => {
                 posts: [...data.posts, ...posts],
             };
             state.requestState.status = 'success';
-            
+
             state.error = null;
             state.form.state = 'success';
     
