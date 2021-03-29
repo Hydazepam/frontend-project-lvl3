@@ -44,6 +44,11 @@ export default (link, state) => {
         state.form.state = 'success';
 
         updateFeeds(state);
+        // try {
+            
+        // } catch (error) {
+            
+        // }
     })
     .catch(function (err) {
         state.form.state = 'fail';

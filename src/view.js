@@ -119,11 +119,10 @@ export default (state, i18next) => (
         if (path === 'form.state') {
             switch (value) {
                 case 'success':
-                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     input.value = '';
-                    
+                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case 'sent':
                     feedback.innerHTML = '';
