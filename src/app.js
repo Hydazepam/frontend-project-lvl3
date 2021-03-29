@@ -33,6 +33,10 @@ export default (i18next) => {
                 error: null,
               },
         },
+        requestState: {
+            status: true,
+            error: null,
+        },
         data: {
             feeds: [],
             posts: [],
@@ -65,6 +69,8 @@ export default (i18next) => {
         };
         watchedState.form.state = 'sent';
         
+        watchedState.requestState.status = 'sending';
+
         fetchData(link, watchedState);
 
         input.addEventListener('input', () => {

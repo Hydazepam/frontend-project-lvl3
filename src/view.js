@@ -2,13 +2,11 @@ import onChange from 'on-change';
 
 const generateFeed = (state, i18next) => {
     const feeds = document.querySelector('.feeds');
-    const feedback = document.querySelector('.feedback');
 
     if (feeds.querySelector('h2')) {
         const list = feeds.querySelector('ul');
         const result = state.data.feeds.map((feed) => `<li class='list-group-item'><h3>${feed.title}</h3><p>${feed.description}</p></li>`);
         list.innerHTML = result.join('');
-        feedback.innerHTML = `${i18next.t('feedback.success')}`;
         return;
     }
     const header = document.createElement('h2');
@@ -21,7 +19,6 @@ const generateFeed = (state, i18next) => {
 
     feeds.appendChild(header);
     feeds.appendChild(list);
-    feedback.innerHTML = `${i18next.t('feedback.success')}`;
 };
 
 const generateModal = (state) => {
@@ -130,6 +127,18 @@ export default (state, i18next) => (
                     break;
                 case 'sent':
                     feedback.innerHTML = '';
+                    break;
+            }
+        }
+        if (path === 'requestState.status') {
+            switch (value) {
+                case 'success':
+                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
+                    break;
+                case 'fail':
+                    console.log('error');
+                    break;
+                case 'sending':
                     break;
             }
         }
