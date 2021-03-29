@@ -126,7 +126,7 @@ export default (state, i18next) => (
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     input.value = '';
-                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
+                    // feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case 'sent':
                     feedback.innerHTML = '';
