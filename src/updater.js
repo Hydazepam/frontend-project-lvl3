@@ -41,12 +41,12 @@ export default (link, state) => {
                 feeds: [...feeds, data.feed],
                 posts: [...data.posts, ...posts],
             };
+            state.requestState.status = 'success';
+            
             state.error = null;
             state.form.state = 'success';
     
             updateFeeds(state);
-
-            state.requestState.status = 'success';
         } catch (error) {
             console.error(error);
             state.requestState.error = 'rss_invalid';
