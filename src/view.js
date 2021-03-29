@@ -75,7 +75,11 @@ const viewedPosts = (state) => {
 
 const generatePosts = (state, i18next) => {
     const posts = document.querySelector('.posts');
+    const feedback = document.querySelector('.feedback');
+
     if (posts.querySelector('h2')) {
+        feedback.innerHTML = `${i18next.t('feedback.success')}`;
+        
         const list = posts.querySelector('ul');
         const result = state.data.posts.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">View</button></li>`);
         list.innerHTML = result.join('');
@@ -83,6 +87,8 @@ const generatePosts = (state, i18next) => {
         generateModal(state);
         return;
     }
+    feedback.innerHTML = `${i18next.t('feedback.success')}`;
+
     const header = document.createElement('h2');
     header.innerHTML = `${i18next.t('posts')}`
     const list = document.createElement('ul');
@@ -122,7 +128,7 @@ export default (state, i18next) => (
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     input.value = '';
-                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
+                    // feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case 'sent':
                     feedback.innerHTML = '';
