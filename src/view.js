@@ -115,7 +115,8 @@ export default (state, i18next) => (
     onChange(state, (path, value) => {
         const feedback = document.querySelector('.feedback');
         const input = document.querySelector('input');
-        const posts = document.querySelector('div[class="posts"]');
+        // const posts = document.querySelector('div[class="posts"]');
+        console.log(path);
         if (path === 'form.field') {
             switch (value.valid) {
                 case true:
