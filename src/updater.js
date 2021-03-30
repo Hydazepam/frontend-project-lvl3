@@ -43,6 +43,7 @@ export default (link, state) => {
                 posts: [...data.posts, ...posts],
             };
             state.requestState.status = 'success';
+            state.requestState.error = null;
 
             state.error = null;
             state.form.state = 'success';

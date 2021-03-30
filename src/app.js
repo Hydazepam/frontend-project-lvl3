@@ -76,6 +76,9 @@ export default (i18next) => {
         input.addEventListener('input', () => {
             watchedState.form.state = 'empty';
             watchedState.form.error = null;
+
+            watchedState.requestState.status = 'empty'
+            watchedState.requestState.error = null;
         });
     });
 };
