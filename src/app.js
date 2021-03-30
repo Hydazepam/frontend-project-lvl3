@@ -70,7 +70,7 @@ export default (i18next) => {
         };
         watchedState.form.state = 'sent';
         
-        watchedState.requestState.status = 'sending';
+        // watchedState.requestState.status = 'sending';
 
         fetchData(link, watchedState);
 
@@ -78,7 +78,7 @@ export default (i18next) => {
             watchedState.form.state = 'empty';
             watchedState.form.error = null;
 
-            watchedState.requestState.status = 'empty'
+            watchedState.requestState.valid = true;
             watchedState.requestState.error = null;
         });
     });
