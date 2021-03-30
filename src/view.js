@@ -106,8 +106,8 @@ const toogleInput = (value) => {
         button.disabled = true;
         input.setAttribute('readonly', true);
     } else {
-        button.disabled = false;
         input.removeAttribute('readonly');
+        button.disabled = false;
     }
 };
 
