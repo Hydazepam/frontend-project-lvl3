@@ -105,7 +105,7 @@ const toogleInput = (value) => {
     if (value === 'sent') {
         button.disabled = true;
         input.setAttribute('readonly', true);
-    } else {
+    } if (value === 'success') {
         input.removeAttribute('readonly');
         button.disabled = false;
     }
