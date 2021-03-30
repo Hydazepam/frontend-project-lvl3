@@ -147,7 +147,7 @@ export default (state, i18next) => (
             }
         }
         if (path === 'requestState') {
-            switch (value.status) {
+            switch (value.valid) {
                 case true:
                     // feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     console.log('success');

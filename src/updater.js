@@ -42,14 +42,14 @@ export default (link, state) => {
                 posts: [...data.posts, ...posts],
             };
             state.requestState.error = null;
-            state.requestState.status = true;
+            state.requestState.valid = true;
 
             state.error = null;
             state.form.state = 'success';
 
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
-            state.requestState.status = false;
+            state.requestState.valid = false;
             state.requestState.error = error.message;
             
         }
