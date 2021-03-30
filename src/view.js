@@ -148,11 +148,11 @@ export default (state, i18next) => (
         }
         if (path === 'requestState') {
             switch (value.status) {
-                case 'true':
+                case true:
                     // feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     console.log('success');
                     break;
-                case 'false':
+                case false:
                     feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
                     console.log(value.error);
                     console.log('fail error')
