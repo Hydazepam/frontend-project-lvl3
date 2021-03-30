@@ -133,11 +133,11 @@ export default (state, i18next) => (
         if (path === 'form.state') {
             switch (value) {
                 case 'success':
+                    input.value = '';
+                    toogleInput(value);
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    toogleInput(value);
-                    input.value = '';
                     break;
                 case 'sent':
                     toogleInput(value);
