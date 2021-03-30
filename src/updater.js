@@ -56,7 +56,7 @@ export default (link, state) => {
         }
     })
     .catch(function (err) {
-        console.log(error);
+        // console.log(error);
         state.form.state = 'fail';
         state.error = err.message;
     })
