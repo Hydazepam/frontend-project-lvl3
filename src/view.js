@@ -134,9 +134,9 @@ export default (state, i18next) => (
             switch (value) {
                 case 'success':
                     toogleInput(value);
-                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
+                    feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     input.value = '';
                     break;
                 case 'sent':
