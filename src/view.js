@@ -116,7 +116,7 @@ export default (state, i18next) => (
         const feedback = document.querySelector('.feedback');
         const input = document.querySelector('input');
         // const posts = document.querySelector('div[class="posts"]');
-        console.log(`Path: ${path}\nValue: ${value}`);
+        // console.log(`Path: ${path}\nValue: ${value}`);
         if (path === 'form.field') {
             switch (value.valid) {
                 case true:
@@ -150,7 +150,7 @@ export default (state, i18next) => (
             switch (value.valid) {
                 case true:
                     // feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    console.log('success');
+                    // console.log('success');
                     break;
                 case false:
                     feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;

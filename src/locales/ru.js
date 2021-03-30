@@ -8,7 +8,7 @@ export default {
                 notURL: 'Ссылка должна быть валидным URL',
                 duplicate: 'RSS уже существует',
                 'parse xml error': 'Ресурс не содержит валидный RSS',
-                'Cannot read property "querySelector" of null': 'Ошибка сети',
+                'no internet': 'Ошибка сети',
             },
         },
     }
