@@ -34,7 +34,8 @@ export default (i18next) => {
               },
         },
         requestState: {
-            status: '',
+            // status: '',
+            valid: true,
             error: null,
         },
         data: {

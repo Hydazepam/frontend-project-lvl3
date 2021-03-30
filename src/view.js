@@ -116,7 +116,7 @@ export default (state, i18next) => (
         const feedback = document.querySelector('.feedback');
         const input = document.querySelector('input');
         // const posts = document.querySelector('div[class="posts"]');
-        console.log(path);
+        // console.log(path);
         if (path === 'form.field') {
             switch (value.valid) {
                 case true:
@@ -148,18 +148,18 @@ export default (state, i18next) => (
         }
         if (path === 'requestState') {
             switch (value.status) {
-                case 'success':
+                case 'true':
                     // feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    console.log('success')
+                    console.log('success');
                     break;
-                case 'fail':
+                case 'false':
                     feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
                     console.log(value.error);
                     console.log('fail error')
                     break;
-                case 'sending':
-                    console.log('sending')
-                    break;
+                // case 'sending':
+                //     console.log('sending')
+                //     break;
             }
         }
         if (path === 'data.posts') {
