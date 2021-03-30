@@ -49,9 +49,10 @@ export default (link, state) => {
 
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
-            state.requestState.valid = false;
-            state.requestState.error = error.message;
-            
+            state.requestState = {
+                valid: false,
+                error: error.message,
+            }
         }
     })
     .catch(function (err) {
