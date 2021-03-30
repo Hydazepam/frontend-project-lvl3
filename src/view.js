@@ -104,10 +104,10 @@ const toogleInput = (value) => {
 
     if (value === 'sent') {
         button.disabled = true;
-        input.setAttribute('readonly', true);
+        // input.setAttribute('readonly', true);
     } else {
         button.disabled = false;
-        input.removeAttribute('readonly');
+        // input.removeAttribute('readonly');
     }
 };
 
@@ -115,8 +115,7 @@ export default (state, i18next) => (
     onChange(state, (path, value) => {
         const feedback = document.querySelector('.feedback');
         const input = document.querySelector('input');
-        // const posts = document.querySelector('div[class="posts"]');
-        // console.log(`Path: ${path}\nValue: ${value}`);
+
         if (path === 'form.field') {
             switch (value.valid) {
                 case true:
