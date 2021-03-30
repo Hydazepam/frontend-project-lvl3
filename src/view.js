@@ -149,7 +149,7 @@ export default (state, i18next) => (
             switch (value.status) {
                 case 'success':
                     // feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    // console.log('request1')
+                    console.log('success')
                     break;
                 case 'fail':
                     feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
@@ -157,6 +157,7 @@ export default (state, i18next) => (
                     console.log('fail error')
                     break;
                 case 'sending':
+                    console.log('sending')
                     break;
             }
         }
