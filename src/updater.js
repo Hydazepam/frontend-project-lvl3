@@ -34,8 +34,6 @@ export default (link, state) => {
             const { feeds, posts } = state.data;
             const data = parser(response.data.contents);
 
-            // if (data) throw new Error ('parse xml error');
-
             const latestPubDate = Math.max(...data.posts.map((item) => Date.parse(item.pubDate)));
             data.feed.latestPubDate = latestPubDate;
             data.feed.link = link;
@@ -48,11 +46,12 @@ export default (link, state) => {
 
             state.error = null;
             state.form.state = 'success';
-// console.log(data);
+
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
-            state.requestState.error = error.message;
             state.requestState.status = 'fail';
+            state.requestState.error = error.message;
+            
         }
     })
     .catch(function (err) {
