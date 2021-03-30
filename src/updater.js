@@ -30,6 +30,7 @@ export default (link, state) => {
     axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${encodeURIComponent(link)}`)
     .then(function (response) {
         try {
+            console.log('test')
             const { feeds, posts } = state.data;
             const data = parser(response.data.contents);
 
@@ -47,7 +48,7 @@ export default (link, state) => {
 
             state.error = null;
             state.form.state = 'success';
-console.log(data);
+// console.log(data);
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
             state.requestState.error = error.message;
