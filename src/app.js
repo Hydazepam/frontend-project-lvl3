@@ -34,7 +34,6 @@ export default (i18next) => {
               },
         },
         requestState: {
-            // status: '',
             valid: true,
             error: null,
         },
@@ -49,6 +48,19 @@ export default (i18next) => {
     const watchedState = view(state, i18next);
     const form = document.querySelector('.rss-form');
     const input = document.querySelector('input');
+
+    const toogleInput = (value) => {
+        const button = document.querySelector('button[class="btn btn-lg btn-primary"]');    
+        const input = document.querySelector('input');
+    
+        if (value === 'disable') {
+            button.disabled = true;
+            input.setAttribute('readonly', true);
+        } if (value === 'enable') {
+            input.removeAttribute('readonly');
+            button.disabled = false;
+        }
+    };
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -69,12 +81,12 @@ export default (i18next) => {
             error: null,
         };
         watchedState.form.state = 'sent';
-        
-        // watchedState.requestState.status = 'sending';
 
+        toogleInput('disable');
         fetchData(link, watchedState);
 
         input.addEventListener('input', () => {
+            toogleInput('enable');
             watchedState.form.state = 'empty';
             watchedState.form.error = null;
 

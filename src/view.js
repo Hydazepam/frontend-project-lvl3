@@ -98,18 +98,18 @@ const generatePosts = (state, i18next) => {
     generateModal(state);
 };
 
-const toogleInput = (value) => {
-    const button = document.querySelector('button[class="btn btn-lg btn-primary"]');    
-    const input = document.querySelector('input');
+// const toogleInput = (value) => {
+//     const button = document.querySelector('button[class="btn btn-lg btn-primary"]');    
+//     const input = document.querySelector('input');
 
-    if (value === 'sent') {
-        button.disabled = true;
-        input.setAttribute('readonly', true);
-    } if (value === 'success') {
-        input.removeAttribute('readonly');
-        button.disabled = false;
-    }
-};
+//     if (value === 'sent') {
+//         button.disabled = true;
+//         input.setAttribute('readonly', true);
+//     } if (value === 'success') {
+//         input.removeAttribute('readonly');
+//         button.disabled = false;
+//     }
+// };
 
 export default (state, i18next) => (
     onChange(state, (path, value) => {
@@ -134,13 +134,13 @@ export default (state, i18next) => (
             switch (value) {
                 case 'success':
                     input.value = '';
-                    toogleInput(value);
+                    // toogleInput(value);
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case 'sent':
-                    toogleInput(value);
+                    // toogleInput(value);
                     feedback.innerHTML = '';
                     break;
             }
