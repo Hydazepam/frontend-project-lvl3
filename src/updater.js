@@ -46,17 +46,15 @@ export default (link, state) => {
             state.error = null;
             state.form.state = 'success';
 
-            // updateFeeds(state);
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
-            // state.requestState.error = 'rss_invalid';
             state.requestState.error = error.message;
+            console.log(error);
             console.log(error.message);
             state.requestState.status = 'fail';
         }
     })
     .catch(function (err) {
-        // console.log(error);
         state.form.state = 'fail';
         state.error = err.message;
     })

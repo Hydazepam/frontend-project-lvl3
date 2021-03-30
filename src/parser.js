@@ -8,7 +8,7 @@ export default (xml) => {
     // }
     // console.log(doc.documentElement.tagName);
     const isParseError = doc.querySelector('parsererror') !== null;
-    if (isParseError) throw Error('parsererror');
+    if (isParseError) throw Error('parse xml error');
 
     const channel = doc.querySelector('channel');
     const items = Array.from(doc.querySelectorAll('item'));
