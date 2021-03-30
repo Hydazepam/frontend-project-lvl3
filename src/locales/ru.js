@@ -5,8 +5,9 @@ export default {
             posts: 'Посты',
             feedback: {
                 success: 'RSS успешно загружен',
-                notURL: 'Ресурс не содержит валидный RSS',
+                notURL: 'Ссылка должна быть валидным URL',
                 duplicate: 'RSS уже существует',
+                requestNotValidRSS: 'Ресурс не содержит валидный RSS',
             },
         },
     }

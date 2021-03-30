@@ -145,19 +145,20 @@ export default (state, i18next) => (
                     break;
             }
         }
-        // if (path === 'requestState.status') {
-        //     switch (value) {
-        //         case 'success':
-        //             feedback.innerHTML = `${i18next.t('feedback.success')}`;
-        //             // console.log('request1')
-        //             break;
-        //         case 'fail':
-        //             // console.log('error');
-        //             break;
-        //         case 'sending':
-        //             break;
-        //     }
-        // }
+        if (path === 'requestState.status') {
+            switch (value) {
+                case 'success':
+                    // feedback.innerHTML = `${i18next.t('feedback.success')}`;
+                    // console.log('request1')
+                    break;
+                case 'fail':
+                    feedback.innerHTML = `${i18next.t('feedback.requestNotValidRSS')}`;
+                    // console.log('error');
+                    break;
+                case 'sending':
+                    break;
+            }
+        }
         if (path === 'data.posts') {
             generatePosts(state, i18next);
         }
