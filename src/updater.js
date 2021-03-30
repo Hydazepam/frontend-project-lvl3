@@ -51,7 +51,7 @@ export default (link, state) => {
         } catch (error) {
             // state.requestState.error = 'rss_invalid';
             state.requestState.error = error.message;
-            console.log(error);
+            // console.log(error.message);
             state.requestState.status = 'fail';
         }
     })

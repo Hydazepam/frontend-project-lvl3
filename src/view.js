@@ -145,14 +145,14 @@ export default (state, i18next) => (
                     break;
             }
         }
-        if (path === 'requestState.status') {
-            switch (value) {
+        if (path === 'requestState') {
+            switch (value.status) {
                 case 'success':
                     // feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     // console.log('request1')
                     break;
                 case 'fail':
-                    feedback.innerHTML = `${i18next.t('feedback.requestNotValidRSS')}`;
+                    feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
                     // console.log('error');
                     break;
                 case 'sending':
