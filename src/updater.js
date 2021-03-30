@@ -49,8 +49,7 @@ export default (link, state) => {
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
             state.requestState.error = error.message;
-            console.log(error);
-            console.log(error.message);
+            // console.log(error.message);
             state.requestState.status = 'fail';
         }
     })

@@ -153,7 +153,7 @@ export default (state, i18next) => (
                     break;
                 case 'fail':
                     feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
-                    // console.log('error');
+                    console.log(value.error);
                     break;
                 case 'sending':
                     break;
