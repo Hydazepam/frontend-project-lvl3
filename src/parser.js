@@ -3,8 +3,13 @@ const getData = (node, name) => (node.querySelector(name).textContent);
 export default (xml) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(xml, 'text/xml');
-    // console.log(doc.documentElement.textContent);
-    console.log(doc.documentElement.tagName);
+    // if (doc.documentElement.tagName === 'parsererror') {
+    //     throw 'parsererror';
+    // }
+    // console.log(doc.documentElement.tagName);
+    const isParseError = doc.querySelector('parsererror') !== null;
+    if (isParseError) throw Error('parsererror');
+
     const channel = doc.querySelector('channel');
     const items = Array.from(doc.querySelectorAll('item'));
 

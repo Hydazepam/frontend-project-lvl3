@@ -7,7 +7,7 @@ export default {
                 success: 'RSS успешно загружен',
                 notURL: 'Ссылка должна быть валидным URL',
                 duplicate: 'RSS уже существует',
-                requestNotValidRSS: 'Ресурс не содержит валидный RSS',
+                parsererror: 'Ресурс не содержит валидный RSS',
                 'Cannot read property "querySelector" of null': 'Ошибка сети',
             },
         },
