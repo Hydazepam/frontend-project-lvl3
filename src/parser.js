@@ -5,10 +5,10 @@ export default (xml) => {
     const doc = parser.parseFromString(xml, 'text/xml');
 console.log(doc.querySelector('parsererror'));
     if (doc.querySelector('parsererror') !== null) {
-        throw Error('parserError');}
-    // } if (doc.querySelector('parsererror') === null) {
-    //     throw Error('networkError')
-    // }
+        throw Error('parserError');
+    } if (doc.querySelector('parsererror') === null) {
+        throw Error('networkError')
+    }
     // const isParseError = doc.querySelector('parsererror') !== null;
     // if (isParseError) throw Error('parse xml error');
 
