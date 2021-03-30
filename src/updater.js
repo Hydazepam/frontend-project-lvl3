@@ -49,10 +49,9 @@ export default (link, state) => {
             // updateFeeds(state);
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
-            // console.error(error);
             // state.requestState.error = 'rss_invalid';
             state.requestState.error = error.message;
-            console.log(error.message);
+            console.log(error);
             state.requestState.status = 'fail';
         }
     })
