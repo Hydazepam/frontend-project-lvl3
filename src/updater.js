@@ -45,11 +45,11 @@ export default (link, state) => {
 
             state.error = null;
             state.form.state = 'success';
-
+console.log('huy')
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
             state.requestState.error = error.message;
-            // console.log(error.message);
+            console.log(error.message);
             state.requestState.status = 'fail';
         }
     })
