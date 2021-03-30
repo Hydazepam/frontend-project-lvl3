@@ -4,8 +4,13 @@ export default (xml) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(xml, 'text/xml');
 
-    const isParseError = doc.querySelector('parsererror') !== null;
-    if (isParseError) throw Error('parse xml error');
+    if (doc.querySelector('parsererror')) {
+        throw Error('parserError');
+    } if (doc === null) {
+        throw Error('networkError')
+    }
+    // const isParseError = doc.querySelector('parsererror') !== null;
+    // if (isParseError) throw Error('parse xml error');
 
     const channel = doc.querySelector('channel');
     const items = Array.from(doc.querySelectorAll('item'));

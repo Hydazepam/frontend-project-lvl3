@@ -7,8 +7,8 @@ export default {
                 success: 'RSS успешно загружен',
                 notURL: 'Ссылка должна быть валидным URL',
                 duplicate: 'RSS уже существует',
-                'parse xml error': 'Ресурс не содержит валидный RSS',
-                'no internet': 'Ошибка сети',
+                parserError: 'Ресурс не содержит валидный RSS',
+                networkError: 'Ошибка сети',
             },
         },
     }
