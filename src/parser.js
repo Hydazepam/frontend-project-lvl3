@@ -3,10 +3,7 @@ const getData = (node, name) => (node.querySelector(name).textContent);
 export default (xml) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(xml, 'text/xml');
-    // if (doc.documentElement.tagName === 'parsererror') {
-    //     throw 'parsererror';
-    // }
-    // console.log(doc.documentElement.tagName);
+
     const isParseError = doc.querySelector('parsererror') !== null;
     if (isParseError) throw Error('parse xml error');
 
