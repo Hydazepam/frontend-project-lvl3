@@ -140,7 +140,7 @@ export default (state, i18next) => (
                     feedback.innerHTML = `${i18next.t('feedback.success')}`;
                     break;
                 case 'sent':
-                    // toogleInput(value);
+                    toogleInput(value);
                     feedback.innerHTML = '';
                     break;
             }
