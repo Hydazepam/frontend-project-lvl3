@@ -3,7 +3,7 @@ const getData = (node, name) => (node.querySelector(name).textContent);
 export default (xml) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(xml, 'text/xml');
-    console.log(doc);
+    console.log(doc.documentElement.textContent);
     const channel = doc.querySelector('channel');
     const items = Array.from(doc.querySelectorAll('item'));
 
