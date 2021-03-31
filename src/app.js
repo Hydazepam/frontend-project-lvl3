@@ -51,10 +51,10 @@ export default (i18next) => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-console.log('click');
+
         const links = state.data.feeds.map((feed) => feed.link);
         const link = input.value;
-console.log(link)
+
         const error = validate(link, links);
         if (error) {
             watchedState.form.field = {
@@ -63,7 +63,8 @@ console.log(link)
             };
             return;
         };
-
+console.log('click');
+console.log(link);
         watchedState.form.field = {
             valid: true,
             error: null,
