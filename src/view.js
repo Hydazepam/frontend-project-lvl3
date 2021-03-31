@@ -105,9 +105,11 @@ const toogleInput = (value) => {
     if (value === 'sent') {
         button.disabled = true;
         input.setAttribute('readonly', true);
+        console.log('disable button')
     } if (value === 'success') {
         input.removeAttribute('readonly');
         button.disabled = false;
+        console.log('enable button')
     }
 };
 
@@ -122,7 +124,6 @@ export default (state, i18next) => (
                     input.classList.remove('is-invalid');
                     feedback.classList.remove('text-danger');
                     feedback.classList.add('text-success');
-                    // toogleInput('sent');
                     break;
                 case false:
                     feedback.classList.add('text-danger');
@@ -134,16 +135,14 @@ export default (state, i18next) => (
         if (path === 'form.state') {
             switch (value) {
                 case 'success':
-                    toogleInput('sent');
                     input.value = '';
                     toogleInput(value);
                     generateFeed(state, i18next);
                     generatePosts(state, i18next);
                     feedback.innerHTML = `${i18next.t('feedback.success')}`;
-                    toogleInput(value);
                     break;
                 case 'sent':
-                    // toogleInput(value);
+                    toogleInput(value);
                     feedback.innerHTML = '';
                     break;
             }

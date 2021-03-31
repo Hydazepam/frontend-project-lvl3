@@ -51,7 +51,7 @@ export default (i18next) => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
+console.log('click');
         const links = state.data.feeds.map((feed) => feed.link);
         const link = input.value;
         const error = validate(link, links);
