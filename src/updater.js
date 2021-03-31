@@ -43,6 +43,7 @@ export default (link, state) => {
             };
             state.requestState.error = null;
             state.requestState.valid = true;
+console.log(link);
 console.log(state.data.posts)
             state.error = null;
             state.form.state = 'success';
