@@ -36,14 +36,14 @@ export default (link, state) => {
             const latestPubDate = Math.max(...data.posts.map((item) => Date.parse(item.pubDate)));
             data.feed.latestPubDate = latestPubDate;
             data.feed.link = link;
-    
+
             state.data = {
                 feeds: [...feeds, data.feed],
                 posts: [...data.posts, ...posts],
             };
             state.requestState.error = null;
             state.requestState.valid = true;
-
+console.log(state.data.posts)
             state.error = null;
             state.form.state = 'success';
 
