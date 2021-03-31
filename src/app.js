@@ -63,9 +63,9 @@ export default (i18next) => {
             };
             return;
         };
-console.log('try click');
-console.log(`validation error: ${error}`);
-console.log(link);
+// console.log('try click');
+// console.log(`validation error: ${error}`);
+// console.log(link);
         watchedState.form.field = {
             valid: true,
             error: null,

@@ -3,6 +3,9 @@ export default {
         translation: {
             feeds: 'Фиды',
             posts: 'Посты',
+            buttons: {
+                view: 'Просмотр',
+            },
             feedback: {
                 success: 'RSS успешно загружен',
                 notURL: 'Ссылка должна быть валидным URL',

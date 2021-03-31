@@ -78,7 +78,7 @@ const generatePosts = (state, i18next) => {
     const posts = document.querySelector('.posts');
     if (posts.querySelector('h2')) {
         const list = posts.querySelector('ul');
-        const result = state.data.posts.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">View</button></li>`);
+        const result = state.data.posts.map((post, i) => `<li class="list-group-item d-flex justify-content-between align-items-start"><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">${i18next.t('buttons.view')}</button></li>`);
         list.innerHTML = result.join('');
 
         generateModal(state);
@@ -89,7 +89,7 @@ const generatePosts = (state, i18next) => {
     const list = document.createElement('ul');
     list.classList.add('list-group');
 
-    const result = state.data.posts.map((post, i) => `<li class='list-group-item d-flex justify-content-between align-items-start'><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">View</button></li>`);
+    const result = state.data.posts.map((post, i) => `<li class='list-group-item d-flex justify-content-between align-items-start'><a href="${post.link}" class="font-weight-bold" data-id="${i}" target="_blank" rel="noopener noreferrer">${post.title}</a><button type="button" class="btn btn-primary btn-sm" data-id="${i}" data-toggle="modal" data-target="#modal">${i18next.t('buttons.view')}</button></li>`);
     list.innerHTML = result.join('');
 
     posts.appendChild(header);
