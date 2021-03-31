@@ -49,6 +49,7 @@ export default (link, state) => {
 
             setTimeout(updateFeeds, 5000, state);
         } catch (error) {
+console.log(error);
             state.requestState = {
                 valid: false,
                 error: error.message,
@@ -58,6 +59,7 @@ export default (link, state) => {
     .catch(function (err) {
         // state.form.state = 'fail';
         // state.error = err.message;
+console.log(err);
         state.requestState = {
             valid: false,
             error: err.message,
