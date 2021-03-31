@@ -54,6 +54,7 @@ export default (i18next) => {
 console.log('click');
         const links = state.data.feeds.map((feed) => feed.link);
         const link = input.value;
+console.log(link)
         const error = validate(link, links);
         if (error) {
             watchedState.form.field = {
