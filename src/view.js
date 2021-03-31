@@ -155,6 +155,7 @@ export default (state, i18next) => (
                     break;
                 case false:
                     feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
+                    toogleInput('success');
                     // console.log(value.error);
                     break;
                 // case 'sending':
