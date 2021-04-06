@@ -2,8 +2,6 @@ import * as yup from 'yup';
 import view from './view';
 import { setLocale } from 'yup';
 import fetchData from './updater';
-// import handleModal from './handlers';
-// import 'bootstrap/js/dist/modal.js';
 
 const validate = (link, links) => {
     setLocale({
