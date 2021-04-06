@@ -25,18 +25,11 @@ const generateModal = (state) => {
     const buttons = document.querySelectorAll('button[class="btn btn-primary btn-sm"]');
     buttons.forEach((button) => {
         button.addEventListener('click', (e) => {
-            e.preventDefault();
+            // e.preventDefault();
 
             document.querySelector('body').classList.add('modal-open');
 
             const modal = document.querySelector('#modal');
-
-            const index = e.currentTarget.getAttribute('data-id');
-            modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
-            modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
-            modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
-
-            state.viewedPosts.push(index);
 
             modal.classList.add('show');
             modal.style.display = 'block';
@@ -44,18 +37,18 @@ const generateModal = (state) => {
             modal.setAttribute('aria-modal', 'true');
             modal.setAttribute('role', 'dialog');
 
-            // const index = e.currentTarget.getAttribute('data-id');
-            // modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
-            // modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
-            // modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
-
-            // state.viewedPosts.push(index);
+            const index = e.currentTarget.getAttribute('data-id');
+            modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
+            modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
+            modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
+console.log(state.data.posts[index].description);
+            state.viewedPosts.push(index);
             viewedPosts(state);
 
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
             closeModalButtons.forEach((button) => {
                 button.addEventListener('click', (e) => {
-                    e.preventDefault();
+                    // e.preventDefault();
 
                     document.querySelector('body').classList.remove('modal-open');
 
