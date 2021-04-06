@@ -46,7 +46,7 @@ const generateModal = (state) => {
             state.viewedPosts.push(index);
             viewedPosts(state);
 console.log(modal.querySelector('.modal-body'))
-console.log(modal.querySelector('.modal-body').innerHTML);
+console.log(modal.querySelector('.modal-body').innerText);
 console.log(modal.innerHTML);
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
             closeModalButtons.forEach((button) => {
