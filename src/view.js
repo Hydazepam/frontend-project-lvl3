@@ -34,7 +34,7 @@ const generateModal = (state) => {
             modal.removeAttribute('aria-hidden');
             modal.classList.add('show');
             modal.style.display = 'block';
-            modal.removeAttribute('aria-hidden');
+            // modal.removeAttribute('aria-hidden');
             modal.setAttribute('aria-modal', 'true');
             modal.setAttribute('role', 'dialog');
 
@@ -42,12 +42,12 @@ const generateModal = (state) => {
             modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
             modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
             modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
-// console.log(state.data.posts[index].description);
+
             state.viewedPosts.push(index);
             viewedPosts(state);
-console.log(modal.querySelector('.modal-body').attributes)
-console.log(modal.querySelector('.modal-body').innerText);
-console.log(modal.innerText);
+// console.log(modal.querySelector('.modal-body').attributes)
+// console.log(modal.querySelector('.modal-body').innerText);
+// console.log(modal.innerHTML);
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
             closeModalButtons.forEach((button) => {
                 button.addEventListener('click', (e) => {
