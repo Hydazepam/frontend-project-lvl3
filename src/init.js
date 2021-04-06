@@ -3,10 +3,10 @@ import resources from './locales/ru';
 import app from './app';
 
 export default () => {
-    const i18nextInstance = i18next.createInstance();
-    return i18nextInstance.init({
-        lng: 'ru',
-        debug: false,
-        resources,
-    }).then(() => app(i18nextInstance));
-  };
+  const i18nextInstance = i18next.createInstance();
+  return i18nextInstance.init({
+    lng: 'ru',
+    debug: false,
+    resources,
+  }).then(() => app(i18nextInstance));
+};
