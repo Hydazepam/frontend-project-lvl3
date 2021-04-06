@@ -1,5 +1,5 @@
-import * as yup from 'yup';
 import view from './view';
+import * as yup from 'yup';
 import { setLocale } from 'yup';
 import fetchData from './updater';
 
@@ -20,7 +20,7 @@ const validate = (link, links) => {
     schema.validateSync(link);
     return null;
   } catch (err) {
-  return err.message;
+    return err.message;
   }
 };
 
@@ -62,7 +62,7 @@ export default (i18next) => {
         error,
       };
       return;
-    };
+    }
 
     watchedState.form.field = {
       valid: true,
