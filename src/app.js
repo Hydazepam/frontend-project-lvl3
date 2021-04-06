@@ -2,6 +2,8 @@ import * as yup from 'yup';
 import view from './view';
 import { setLocale } from 'yup';
 import fetchData from './updater';
+// import handleModal from './handlers';
+// import 'bootstrap/js/dist/modal.js';
 
 const validate = (link, links) => {
     setLocale({
@@ -63,9 +65,7 @@ export default (i18next) => {
             };
             return;
         };
-// console.log('try click');
-// console.log(`validation error: ${error}`);
-// console.log(link);
+
         watchedState.form.field = {
             valid: true,
             error: null,
@@ -82,4 +82,13 @@ export default (i18next) => {
             watchedState.requestState.error = null;
         });
     });
+
+    // const posts = document.querySelector('.posts');
+    // posts.addEventListener('click', (e) => {
+    //     const clickedPostId = e.target.dataset.id;
+    //     watchedState.viewedPosts.push(clickedPostId);
+    // });
+
+    // const modal = document.querySelector('#myModal');
+    // modal.addEventListener('show.bs.modal', (e) => handleModal(e, watchedState)); // new lines
 };

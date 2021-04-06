@@ -30,11 +30,6 @@ const generateModal = (state) => {
             document.querySelector('body').classList.add('modal-open');
 
             const modal = document.querySelector('#modal');
-            modal.classList.add('show');
-            modal.style.display = 'block';
-            modal.removeAttribute('aria-hidden');
-            modal.setAttribute('aria-modal', 'true');
-            modal.setAttribute('role', 'dialog');
 
             const index = e.currentTarget.getAttribute('data-id');
             modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
@@ -42,6 +37,19 @@ const generateModal = (state) => {
             modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
 
             state.viewedPosts.push(index);
+
+            modal.classList.add('show');
+            modal.style.display = 'block';
+            modal.removeAttribute('aria-hidden');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('role', 'dialog');
+
+            // const index = e.currentTarget.getAttribute('data-id');
+            // modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
+            // modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
+            // modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
+
+            // state.viewedPosts.push(index);
             viewedPosts(state);
 
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
@@ -51,7 +59,7 @@ const generateModal = (state) => {
 
                     document.querySelector('body').classList.remove('modal-open');
 
-                    const modal = document.querySelector('#modal');
+                    // const modal = document.querySelector('#modal');
                     modal.classList.remove('show');
                     modal.style.display = 'none';
                     modal.setAttribute('aria-hidden', 'true');
@@ -166,5 +174,9 @@ export default (state, i18next) => (
         if (path === 'data.posts') {
             generatePosts(state, i18next);
         }
+        // if (path === 'viewedPosts') {
+        //     // alert('success');
+
+        // }
     })
 );
