@@ -47,8 +47,7 @@ const generateModal = (state) => {
             viewedPosts(state);
 console.log(modal.querySelector('.modal-body').attributes)
 console.log(modal.querySelector('.modal-body').innerText);
-console.log(modal.innerHTML);
-expect(getByText('Цель: Научиться извлекать из дерева необходимые данные')).toBeVisible()
+console.log(modal.innerText);
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
             closeModalButtons.forEach((button) => {
                 button.addEventListener('click', (e) => {
