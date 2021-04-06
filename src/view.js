@@ -30,7 +30,8 @@ const generateModal = (state) => {
 
             const index = e.currentTarget.getAttribute('data-id');
             modal.querySelector('.modal-title').innerText = state.data.posts[index].title;
-            modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
+            // modal.querySelector('.modal-body').innerText = state.data.posts[index].description;
+            modal.querySelector('.modal-body').innerText = 'state.data.posts[index].description';
             modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
 
             document.querySelector('body').classList.add('modal-open');
