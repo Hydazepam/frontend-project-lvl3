@@ -19,7 +19,7 @@ const updateFeeds = (state) => {
       })
       .catch(function (err) {
         state.form.state = 'fail';
-       state.error = err.message;
+        state.error = err.message;
       });
   });
   setTimeout(updateFeeds, 5000, state);
@@ -51,13 +51,13 @@ export default (link, state) => {
         state.requestState = {
           valid: false,
           error: error.message,
-        }
+        };
       }
     })
     .catch(function (err) {
       state.requestState = {
         valid: false,
         error: err.message,
-      }
-    })
+      };
+    });
 };
