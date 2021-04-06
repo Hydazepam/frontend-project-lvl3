@@ -34,7 +34,7 @@ const generateModal = (state) => {
             modal.removeAttribute('aria-hidden');
             modal.classList.add('show');
             modal.style.display = 'block';
-            // modal.removeAttribute('aria-hidden');
+            modal.removeAttribute('aria-hidden');
             modal.setAttribute('aria-modal', 'true');
             modal.setAttribute('role', 'dialog');
 
