@@ -33,7 +33,7 @@ const generateModal = (state) => {
 
             modal.removeAttribute('aria-hidden');
             modal.classList.add('show');
-            modal.style.display = 'block';
+            // modal.style.display = 'block';
             // modal.removeAttribute('aria-hidden');
             modal.setAttribute('aria-modal', 'true');
             modal.setAttribute('role', 'dialog');
@@ -57,7 +57,7 @@ const generateModal = (state) => {
 
                     // const modal = document.querySelector('#modal');
                     modal.classList.remove('show');
-                    modal.style.display = 'none';
+                    // modal.style.display = 'none';
                     modal.setAttribute('aria-hidden', 'true');
                     modal.removeAttribute('aria-modal');
                     modal.removeAttribute('role');
