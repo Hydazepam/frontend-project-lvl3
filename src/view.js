@@ -26,18 +26,11 @@ const generateModal = (state) => {
     buttons.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
-            // const modal = document.querySelector('#modal');
-
-            // const index = e.currentTarget.getAttribute('data-id');
-            // modal.querySelector('.modal-title').innerHTML = state.data.posts[index].title;
-            // modal.querySelector('.modal-body').innerHTML = state.data.posts[index].description;
-            // modal.querySelector('a[class="btn btn-primary full-article"]').setAttribute('href', state.data.posts[index].link);
 
             document.querySelector('body').classList.add('modal-open');
 
             const modal = document.querySelector('#modal');
 
-            // modal.removeAttribute('aria-hidden');
             modal.classList.add('show');
             modal.style.display = 'block';
             modal.removeAttribute('aria-hidden');
@@ -51,9 +44,7 @@ const generateModal = (state) => {
 
             state.viewedPosts.push(index);
             viewedPosts(state);
-// console.log(modal.querySelector('.modal-body').attributes)
-// console.log(modal.querySelector('.modal-body').innerText);
-// console.log(modal.innerHTML);
+
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
             closeModalButtons.forEach((button) => {
                 button.addEventListener('click', (e) => {
@@ -61,7 +52,6 @@ const generateModal = (state) => {
 
                     document.querySelector('body').classList.remove('modal-open');
 
-                    // const modal = document.querySelector('#modal');
                     modal.classList.remove('show');
                     modal.style.display = 'none';
                     modal.setAttribute('aria-hidden', 'true');
