@@ -21,7 +21,7 @@ export default (xml) => {
     description: getData(item, 'description'),
     link: getData(item, 'link'),
     pubDate: getData(item, 'pubDate'),
-   }));
+  }));
 
   return {
     feed,

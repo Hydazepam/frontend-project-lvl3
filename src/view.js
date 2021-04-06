@@ -57,10 +57,10 @@ const generateModal = (state) => {
           modal.setAttribute('aria-hidden', 'true');
           modal.removeAttribute('aria-modal');
           modal.removeAttribute('role');
-        })
-      })
-    })
-  })
+        });
+      });
+    });
+  });
 };
 
 const viewedPosts = (state) => {
@@ -71,7 +71,7 @@ const viewedPosts = (state) => {
       post.classList.remove('font-weight-bold');
       post.classList.add('font-weight-normal');
     }
-  })
+  });
 };
 
 const generatePosts = (state, i18next) => {
@@ -85,7 +85,7 @@ const generatePosts = (state, i18next) => {
     return;
   }
   const header = document.createElement('h2');
-  header.innerHTML = `${i18next.t('posts')}`
+  header.innerHTML = `${i18next.t('posts')}`;
   const list = document.createElement('ul');
   list.classList.add('list-group');
 
@@ -99,7 +99,7 @@ const generatePosts = (state, i18next) => {
 };
 
 const toogleInput = (value) => {
-  const button = document.querySelector('button[class="btn btn-lg btn-primary"]');    
+  const button = document.querySelector('button[class="btn btn-lg btn-primary"]');
   const input = document.querySelector('input');
 
   if (value === 'sent') {
