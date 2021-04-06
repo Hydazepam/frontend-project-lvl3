@@ -25,15 +25,16 @@ const generateModal = (state) => {
     const buttons = document.querySelectorAll('button[class="btn btn-primary btn-sm"]');
     buttons.forEach((button) => {
         button.addEventListener('click', (e) => {
-            // e.preventDefault();
+            e.preventDefault();
 
             document.querySelector('body').classList.add('modal-open');
 
             const modal = document.querySelector('#modal');
 
+            modal.removeAttribute('aria-hidden');
             modal.classList.add('show');
             modal.style.display = 'block';
-            modal.removeAttribute('aria-hidden');
+            // modal.removeAttribute('aria-hidden');
             modal.setAttribute('aria-modal', 'true');
             modal.setAttribute('role', 'dialog');
 
@@ -48,7 +49,7 @@ console.log(state.data.posts[index].description);
             const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
             closeModalButtons.forEach((button) => {
                 button.addEventListener('click', (e) => {
-                    // e.preventDefault();
+                    e.preventDefault();
 
                     document.querySelector('body').classList.remove('modal-open');
 
