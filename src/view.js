@@ -21,10 +21,21 @@ const generateFeed = (state, i18next) => {
   feeds.appendChild(list);
 };
 
+const viewedPosts = (state) => {
+  const posts = document.querySelectorAll('a[class="font-weight-bold"]');
+
+  posts.forEach((post) => {
+    if (state.viewedPosts.includes(post.getAttribute('data-id'))) {
+      post.classList.remove('font-weight-bold');
+      post.classList.add('font-weight-normal');
+    }
+  });
+};
+
 const generateModal = (state) => {
   const buttons = document.querySelectorAll('button[class="btn btn-primary btn-sm"]');
-  buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
+  buttons.forEach((openButton) => {
+    openButton.addEventListener('click', (e) => {
       e.preventDefault();
 
       document.querySelector('body').classList.add('modal-open');
@@ -46,9 +57,9 @@ const generateModal = (state) => {
       viewedPosts(state);
 
       const closeModalButtons = document.querySelectorAll('button[data-dismiss="modal"]');
-      closeModalButtons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-          e.preventDefault();
+      closeModalButtons.forEach((closeButton) => {
+        closeButton.addEventListener('click', () => {
+          // e.preventDefault();
 
           document.querySelector('body').classList.remove('modal-open');
 
@@ -60,17 +71,6 @@ const generateModal = (state) => {
         });
       });
     });
-  });
-};
-
-const viewedPosts = (state) => {
-  const posts = document.querySelectorAll('a[class="font-weight-bold"]');
-
-  posts.forEach((post) => {
-    if (state.viewedPosts.includes(post.getAttribute('data-id'))) {
-      post.classList.remove('font-weight-bold');
-      post.classList.add('font-weight-normal');
-    }
   });
 };
 
@@ -128,6 +128,8 @@ export default (state, i18next) => (
           input.classList.add('is-invalid');
           feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
           break;
+        default:
+          break;
       }
     }
     if (path === 'form.state') {
@@ -143,6 +145,8 @@ export default (state, i18next) => (
           toogleInput(value);
           feedback.innerHTML = '';
           break;
+        default:
+          break;
       }
     }
     if (path === 'requestState') {
@@ -152,6 +156,8 @@ export default (state, i18next) => (
         case false:
           feedback.innerHTML = `${i18next.t(`feedback.${value.error}`)}`;
           toogleInput('success');
+          break;
+        default:
           break;
       }
     }
