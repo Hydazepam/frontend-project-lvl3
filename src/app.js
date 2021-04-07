@@ -1,6 +1,6 @@
 import * as yup from 'yup';
-import view from './view';
 import { setLocale } from 'yup';
+import view from './view';
 import fetchData from './updater';
 
 const validate = (link, links) => {
@@ -12,7 +12,6 @@ const validate = (link, links) => {
       notOneOf: 'duplicate',
     },
   });
-
   const schema = yup.string()
     .url()
     .notOneOf(links);
@@ -45,7 +44,7 @@ export default (i18next) => {
     error: null,
   };
 
-//   const watchedState = view(state, i18next);
+  const watchedState = view(state, i18next);
   const form = document.querySelector('.rss-form');
   const input = document.querySelector('input');
 
@@ -56,8 +55,8 @@ export default (i18next) => {
     const link = input.value;
 
     const error = validate(link, links);
-    const watchedState = view(state, i18next);
-    
+    // const watchedState = view(state, i18next);
+
     if (error) {
       watchedState.form.field = {
         valid: false,
