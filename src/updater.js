@@ -4,7 +4,7 @@ import parser from './parser';
 const updateFeeds = (state) => {
   state.data.feeds.forEach((feed) => {
     axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${encodeURIComponent(feed.link)}`)
-      .then(function (response) {
+      .then((response) => {
         const data = parser(response.data.contents);
 
         const newPosts = data.posts.filter((post) => Date.parse(post.pubDate) > feed.latestPubDate);
@@ -17,7 +17,7 @@ const updateFeeds = (state) => {
           state.data.posts = [...newPosts, ...oldPosts];
         }
       })
-      .catch(function (err) {
+      .catch((err) => {
         state.form.state = 'fail';
         state.error = err.message;
       });
@@ -27,7 +27,7 @@ const updateFeeds = (state) => {
 
 export default (link, state) => {
   axios.get(`https://hexlet-allorigins.herokuapp.com/get?disableCache=true&url=${encodeURIComponent(link)}`)
-    .then(function (response) {
+    .then((response) => {
       try {
         const { feeds, posts } = state.data;
         const data = parser(response.data.contents);
@@ -54,7 +54,7 @@ export default (link, state) => {
         };
       }
     })
-    .catch(function (err) {
+    .catch((err) => {
       state.requestState = {
         valid: false,
         error: err.message,

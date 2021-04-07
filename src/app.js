@@ -55,7 +55,6 @@ export default (i18next) => {
     const link = input.value;
 
     const error = validate(link, links);
-    // const watchedState = view(state, i18next);
 
     if (error) {
       watchedState.form.field = {
